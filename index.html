@@ -732,14 +732,9 @@ function renderLeft(){
   document.getElementById('locSess').textContent='当前会话 S'+state.cur.sid;
   // 会话画像
   const ev=liveEvents(); const cp=consumptionProfile();
-  const detailN=ev.filter(e=>e.type==='detail').length; const cartN=ev.filter(e=>e.type==='cart').length;
+  const detailN=ev.filter(e=>e.type==='detail').length, favN=ev.filter(e=>e.type==='fav').length, payN=ev.filter(e=>e.type==='purchase').length;
   const searches=[...new Set(ev.filter(e=>e.type==='search').map(e=>e.meta.q))].slice(0,4);
   const startTs=ev.length?ev[0].ts:Date.now();
-  const elapsedSec=ev.length?Math.max(1,(Date.now()-startTs)/1000):1;
-  const pace=(ev.length/elapsedSec*60).toFixed(1);
-  const lastEv=ev[ev.length-1];
-  const idleSec=ev.length?(Date.now()-lastEv.ts)/1000:0;
-  const sstatus=!ev.length?'未开始':(idleSec>30?'停滞':'活跃');
   const prevSess=getSessions().find(s=>s.sid!==state.cur.sid);
   let diffTxt='';
   if(prevSess){ const pn=prevSess.traces.reduce((a,t)=>a+t.events.length,0); const d=ev.length-pn; diffTxt='vs 上会话 '+(d>=0?'+':'')+d+' 行为'; }
@@ -748,14 +743,13 @@ function renderLeft(){
     '<div class="sp"><span class="k">会话</span><span class="v">S'+state.cur.sid+'·T'+state.cur.tid+'</span>'
     +'<span class="k">时长</span><span class="v">'+(ev.length?dur(Date.now()-startTs):'0s')+'</span>'
     +'<span class="k">行为数</span><span class="v">'+ev.length+'</span>'
-    +'<span class="k">页面深度</span><span class="v">'+detailN+'个详情</span></div>'
-    +'<div class="sp-extra"><span class="k">行为节奏</span><span class="v">'+pace+'/min</span>'
-    +'<span class="k">会话状态</span><span class="v">'+sstatus+(ev.length&&idleSec>5?' · 静默'+Math.round(idleSec)+'s':'')+'</span></div>'
+    +'<span class="k">商品访问数</span><span class="v">'+detailN+'件</span></div>'
     +'<div class="sp-node">📍 当前节点：'+node+'</div>'
     +'<div class="sp-funnel">'
     +'<div class="fn"><div class="n">'+state.sesExposed.size+'</div><div class="l">曝光</div></div><div class="ar">›</div>'
     +'<div class="fn"><div class="n">'+detailN+'</div><div class="l">详情</div></div><div class="ar">›</div>'
-    +'<div class="fn"><div class="n">'+cartN+'</div><div class="l">加购</div></div></div>'
+    +'<div class="fn"><div class="n">'+favN+'</div><div class="l">收藏</div></div><div class="ar">›</div>'
+    +'<div class="fn"><div class="n">'+payN+'</div><div class="l">支付</div></div></div>'
     +(searches.length?'<div class="sp-search">🔎 '+searches.map(q=>'「'+q+'」').join(' ')+'</div>':'')
     +(diffTxt?'<div class="sp-diff">'+diffTxt+'</div>':'');
   // 会话/轨迹列表
