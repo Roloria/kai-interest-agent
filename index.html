@@ -14,7 +14,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
-  .stage{display:flex;gap:18px;justify-content:center;align-items:flex-start;padding:22px 18px;flex-wrap:wrap}
+  .stage{display:flex;gap:18px;justify-content:flex-start;align-items:flex-start;padding:22px 18px;flex-wrap:wrap;max-width:1680px;margin:0 auto;width:100%}
   .col{display:flex;flex-direction:column;min-width:0}
   .col-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:9px;display:flex;align-items:center;gap:8px}
   .col-label .dot{width:7px;height:7px;border-radius:50%;background:var(--brand)}
@@ -40,7 +40,7 @@
   .sbar .sfill{height:100%;border-radius:4px;transition:width .5s}
   .sbar .val{flex:0 0 28px;text-align:right;font-weight:800}
   /* ===== LEFT ===== */
-  .col-left{width:300px}
+  .col-left{flex:1 1 260px;min-width:240px;max-width:330px}
   .sp{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;font-size:11px;margin-bottom:8px}
   .sp .k{color:var(--muted)}
   .sp .v{font-weight:800;text-align:right}
@@ -64,7 +64,7 @@
   .trace .path .pi{font-size:11px;line-height:1}
   .trace .rn{font-size:10px;color:var(--muted);flex:0 0 auto}
   .trace .play{flex:0 0 auto;font-size:11px}
-  .stream{max-height:120px;overflow-y:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;line-height:1.6}
+  .stream{max-height:240px;overflow-y:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;line-height:1.6}
   .stream::-webkit-scrollbar{width:5px}.stream::-webkit-scrollbar-thumb{background:#cfd2dd;border-radius:3px}
   .stream .line{display:flex;gap:6px;opacity:0;transform:translateY(3px);animation:si .3s forwards}
   @keyframes si{to{opacity:1;transform:none}}
@@ -122,7 +122,7 @@
   .score-item .si-bars .val{font-size:10px;flex:0 0 22px}
   .score-item .exp-badge{position:absolute;top:7px;right:9px;font-size:8px;font-weight:800;background:#eef0ff;color:var(--violet);padding:2px 6px;border-radius:5px}
   /* ===== phone ===== */
-  .col-phone{}
+  .col-phone{flex:0 0 auto}
   .phone{width:386px;height:780px;background:#0b0d16;border-radius:46px;padding:12px;box-shadow:0 30px 70px rgba(16,19,31,.30),0 6px 16px rgba(16,19,31,.18);position:relative}
   .phone .notch{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:118px;height:28px;background:#0b0d16;border-radius:0 0 18px 18px;z-index:60}
   .screen{width:100%;height:100%;border-radius:36px;overflow:hidden;background:var(--screen);position:relative;display:flex;flex-direction:column}
@@ -233,8 +233,9 @@
   .scrim.show{background:rgba(16,19,31,.34);pointer-events:auto}
   .toast{position:absolute;left:50%;bottom:74px;transform:translateX(-50%) translateY(20px);background:rgba(20,23,33,.92);color:#fff;font-size:12px;padding:8px 16px;border-radius:20px;z-index:80;opacity:0;transition:.25s;pointer-events:none;white-space:nowrap}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-  .col-right{width:380px;max-width:94vw}
-  @media(max-width:1180px){.stage{flex-direction:column;align-items:center}.col-left,.col-right{width:94vw;max-width:420px}}
+  .col-profile{flex:1 1 330px;min-width:300px}
+  .col-rec{flex:1 1 360px;min-width:320px}
+  @media(max-width:1280px){.stage{flex-direction:column;align-items:center}.col-left,.col-profile,.col-rec{width:94vw;max-width:440px}}
   /* goal banner */
   .goal{max-width:1120px;margin:18px auto 0;padding:16px 20px;background:linear-gradient(120deg,#10131f,#1a1e30);color:#e7e8f5;border-radius:16px;border:1px solid var(--dark-line)}
   .goal .gt{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#9a9dc0;margin-bottom:8px}
@@ -244,6 +245,37 @@
   .goal .gmap .gm{flex:1;min-width:190px;background:#1f2440;border:1px solid #2a2e45;border-radius:10px;padding:8px 10px}
   .goal .gmap .gm .gmh{font-size:11px;font-weight:800;color:#fff}
   .goal .gmap .gm .gmd{font-size:10.5px;color:#9da0c4;margin-top:2px;line-height:1.4}
+  .up-grid2{display:grid;grid-template-columns:repeat(3,1fr);gap:7px 8px;margin-bottom:10px}
+  .up-grid2 div{background:var(--screen);border-radius:8px;padding:6px 8px}
+  .up-grid2 small{display:block;font-size:9px;color:var(--muted);margin-bottom:1px}
+  .up-grid2 b{font-size:11.5px}
+  .up-power{display:flex;align-items:center;gap:8px;margin-bottom:9px;font-size:11px}
+  .up-power .lab{flex:0 0 50px;color:var(--muted)}
+  .up-power .strack{flex:1;height:6px;background:#eef0f6;border-radius:4px;overflow:hidden}
+  .up-power .sfill{height:100%;border-radius:4px;transition:width .5s}
+  .up-power .val{flex:0 0 28px;text-align:right;font-weight:800}
+  .life-conf{font-size:9px;font-weight:700;background:#eef0ff;color:var(--violet);padding:2px 6px;border-radius:5px;flex:0 0 auto}
+  .price-buckets{display:flex;gap:6px;margin-bottom:9px}
+  .price-buckets .pb{flex:1;background:var(--screen);border-radius:8px;padding:6px 4px;text-align:center}
+  .price-buckets .pb .pn{font-size:13px;font-weight:800}
+  .price-buckets .pb .pl{font-size:9px;color:var(--muted)}
+  .up-goal{display:flex;align-items:center;gap:8px;background:linear-gradient(90deg,#fff1f2,#fff);border:1px solid var(--brand-soft);border-radius:9px;padding:7px 9px;margin-bottom:9px;font-size:11px}
+  .up-goal .gt{font-weight:800;color:var(--brand);flex:0 0 auto}
+  .up-goal .gd{color:#555}
+  .sp-extra{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;font-size:11px;margin:6px 0}
+  .sp-extra .k{color:var(--muted)}
+  .sp-extra .v{font-weight:800;text-align:right}
+  .sp-node{font-size:10px;color:var(--violet);background:#eef0ff;border-radius:7px;padding:3px 7px;margin:4px 0}
+  .sp-diff{font-size:10px;color:var(--muted);margin-top:5px}
+  .contrib{margin-top:6px}
+  .contrib-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;background:#eef0f6}
+  .contrib-bar .cb{display:block;height:100%}
+  .cb-p{background:var(--brand)}.cb-e{background:var(--violet)}.cb-z{background:var(--blue)}
+  .contrib-leg{font-size:9px;color:var(--muted);margin-top:3px}
+  .timeline{margin-top:4px}
+  .tl-legend{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:5px}
+  .tl-eg{font-size:9px;color:#c7c9e6;border-left:3px solid;padding-left:5px}
+  .tl-note{font-size:9px;color:#6c6f96;margin-left:auto}
 </style>
 </head>
 <body>
@@ -258,31 +290,7 @@
 </div>
 <div class="stage">
 
-  <!-- ============ LEFT ============ -->
-  <div class="col col-left">
-    <div class="col-label"><span class="dot"></span>用户行为 · Session / Trace</div>
-    <div class="lcard">
-      <div class="h"><span class="t">实时会话画像</span><span class="acts"><button class="mini-btn" onclick="newSession()">+会话</button><button class="mini-btn" onclick="newTrace()">+轨迹</button></span></div>
-      <div id="sesProf"></div>
-    </div>
-    <div class="lcard">
-      <div class="h"><span class="t">会话 & 行为轨迹</span><span class="acts"></span></div>
-      <div id="sessions"><p class="empty-mini">还没有行为数据，在中间手机操作或点下方剧本即可生成轨迹。</p></div>
-      <div style="margin-top:8px"><div style="font-size:11px;font-weight:700;margin-bottom:6px;color:var(--muted)">预设剧本（自动演示）</div>
-        <div class="acts" style="display:flex;gap:6px;flex-wrap:wrap">
-          <button class="mini-btn b" onclick="runPersona('价格敏感型')">价格敏感型</button>
-          <button class="mini-btn b" onclick="runPersona('数码发烧友')">数码发烧友</button>
-          <button class="mini-btn b" onclick="runPersona('礼品采购')">礼品采购</button>
-        </div>
-      </div>
-    </div>
-    <div class="lcard">
-      <div class="h"><span class="t">Agent 观察</span></div>
-      <div class="stream" id="stream"></div>
-    </div>
-  </div>
-
-  <!-- ============ MIDDLE: phone ============ -->
+  <!-- ============ 实机演示 / 回放 ============ -->
   <div class="col col-phone">
     <div class="col-label"><span class="dot"></span>移动电商 App · 实机演示 / 回放</div>
     <div class="phone">
@@ -338,9 +346,9 @@
     </div>
   </div>
 
-  <!-- ============ RIGHT ============ -->
-  <div class="col col-right">
-    <div class="col-label"><span class="dot" style="background:var(--brand)"></span>用户画像 · Agent 分析</div>
+  <!-- ============ 用户画像 · 兴趣 / 意图 ============ -->
+  <div class="col col-profile">
+    <div class="col-label"><span class="dot" style="background:var(--brand)"></span>用户画像 · 兴趣 / 意图</div>
     <div class="acard light">
       <div class="a-head light">用户画像</div>
       <div class="up-top">
@@ -357,7 +365,18 @@
         <div><small>平均笔单价</small><b id="upAvgOrder">—</b></div>
         <div><small>价位带</small><b id="upBand">—</b></div>
       </div>
-      <div class="up-life"><span class="life-tag" id="upLifeTag">探索中</span><span class="life-reason" id="upLifeReason">行为不足，待积累长期偏好</span></div>
+      <div class="up-grid2">
+        <div><small>八大人群</small><b id="upOcc">—</b></div>
+        <div><small>收入区间</small><b id="upIncome">—</b></div>
+        <div><small>设备</small><b id="upDevice">—</b></div>
+        <div><small>渠道</small><b id="upChannel">—</b></div>
+        <div><small>活跃时段</small><b id="upActive">—</b></div>
+        <div><small>累计订单</small><b id="upOrders">—</b></div>
+      </div>
+      <div class="up-power"><span class="lab">消费力</span><div class="strack"><div class="sfill" id="upPowerBar" style="width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2))"></div></div><span class="val" id="upPowerVal">0</span></div>
+      <div class="up-life"><span class="life-tag" id="upLifeTag">探索中</span><span class="life-conf" id="upLifeConf"></span><span class="life-reason" id="upLifeReason">行为不足，待积累长期偏好</span></div>
+      <div class="price-buckets" id="upBuckets"></div>
+      <div class="up-goal" id="upGoal"></div>
       <div class="up-hist" id="upHist"></div>
     </div>
     <div class="acard">
@@ -372,6 +391,15 @@
       <div class="bar-track" style="height:6px;border-radius:4px;background:#2a2e4a;margin:8px 0 8px;overflow:hidden"><div id="iBar" style="height:100%;border-radius:4px;background:linear-gradient(90deg,var(--brand),var(--brand-2));transition:width .5s;width:0"></div></div>
       <div class="ustate" id="uState"></div>
     </div>
+    <div class="acard">
+      <div class="a-head">兴趣时序演化 · 激活 / 衰退</div>
+      <div class="timeline" id="interestTimeline"></div>
+    </div>
+  </div>
+
+  <!-- ============ 推荐流评估 · 总评 / 逐项 ============ -->
+  <div class="col col-rec">
+    <div class="col-label"><span class="dot" style="background:var(--brand)"></span>推荐流评估 · 总评 / 逐项</div>
     <div class="acard light">
       <div class="a-head light">推荐流总评 · 运营策略</div>
       <div class="opsbar" id="opsbar"></div>
@@ -384,6 +412,31 @@
       <div id="recScores"><p class="empty-mini">浏览几件商品后，这里会逐项评估推荐流。</p></div>
     </div>
   </div>
+
+  <!-- ============ 用户行为 · Session / Trace ============ -->
+  <div class="col col-left">
+    <div class="col-label"><span class="dot"></span>用户行为 · Session / Trace</div>
+    <div class="lcard">
+      <div class="h"><span class="t">实时会话画像</span><span class="acts"><button class="mini-btn" onclick="newSession()">+会话</button><button class="mini-btn" onclick="newTrace()">+轨迹</button></span></div>
+      <div id="sesProf"></div>
+    </div>
+    <div class="lcard">
+      <div class="h"><span class="t">会话 & 行为轨迹</span><span class="acts"></span></div>
+      <div id="sessions"><p class="empty-mini">还没有行为数据，在中间手机操作或点下方剧本即可生成轨迹。</p></div>
+      <div style="margin-top:8px"><div style="font-size:11px;font-weight:700;margin-bottom:6px;color:var(--muted)">预设剧本（自动演示）</div>
+        <div class="acts" style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="mini-btn b" onclick="runPersona('价格敏感型')">价格敏感型</button>
+          <button class="mini-btn b" onclick="runPersona('数码发烧友')">数码发烧友</button>
+          <button class="mini-btn b" onclick="runPersona('礼品采购')">礼品采购</button>
+        </div>
+      </div>
+    </div>
+    <div class="lcard">
+      <div class="h"><span class="t">Agent 观察</span></div>
+      <div class="stream" id="stream"></div>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -429,7 +482,8 @@ const CATALOG_MAX = Math.max(...CATALOG.map(p=>p.price));
 /* 用户静态画像（模拟） */
 const USER = {
   uid:"U20240710", name:"小K", avatar:"🧑‍💻", level:"黄金会员", tier:"老客", regDays:312,
-  city:"北京", age:"25-34", gender:"女",
+  city:"北京", age:"25-34", gender:"女", crowd:"新锐白领", income:"15-25k",
+  device:"iOS", channel:"搜索", activeHours:"晚间", lifetimeOrders:18, lifetimeSpend:8420,
   histCats:{数码:5,美妆:4,鞋服:3,食品:2,居家:1,运动:1},
 };
 
@@ -444,6 +498,7 @@ const state = {
   replay:{active:false,trace:null,idx:0,timer:null,exposed:new Set(),interacted:new Set(),carted:new Set(),action:{},sid:0,tid:0,pause:false,snap:null},
   strat:'cold', ops:'default', confHist:[],
   sesExposed:new Set(), sesInteracted:new Set(),
+  histSnapshots:[], _lastSnap:0,
 };
 const WEIGHTS = {hover:0.5, view:1, search:2.5, detail:3.2, fav:4.2, cart:5.5, removeCart:-2.5, purchase:10, filter:1.5, sort:0.8, dismiss:-3};
 function _record(type, productId=null, meta={}){
@@ -527,20 +582,34 @@ function consumptionProfile(){
   const avgOrder = buy.length? buy.reduce((a,e)=>a+e.price,0)/buy.length : (state.cart.size? [...state.cart].reduce((a,id)=>a+CATALOG.find(p=>p.id===id).price,0)/state.cart.size : 0);
   let score=(avgInteract-CATALOG_MIN)/(CATALOG_MAX-CATALOG_MIN)*100; score=Math.max(0,Math.min(100,score));
   let level = ev.length? (score<25?'偏低':score<55?'中等':score<80?'较高':'高') : '未知';
-  return {level,score:Math.round(score),avgInteract:Math.round(avgInteract),avgOrder:Math.round(avgOrder||0)};
+  const prices=ev.map(e=>e.price);
+  const low=prices.filter(p=>p<150).length, mid=prices.filter(p=>p>=150&&p<=400).length, high=prices.filter(p=>p>400).length;
+  const ntot=(low+mid+high)||1;
+  const buckets={low:Math.round(low/ntot*100),mid:Math.round(mid/ntot*100),high:Math.round(high/ntot*100)};
+  const histAvg=USER.lifetimeSpend/USER.lifetimeOrders;
+  const trend = ev.length? (avgInteract>histAvg*1.15?'上行':avgInteract<histAvg*0.85?'下行':'稳定') : '—';
+  let goal;
+  if(!ev.length) goal='冷启动：热销引导首次互动';
+  else if(score<35) goal='提升客单价：推荐中高价位品质好物';
+  else if(state.cart.size===0 && ev.length>=6) goal='促成首单：推荐高转化强需求品';
+  else goal='提升复购与连带：推荐关联/互补品类';
+  return {level,score:Math.round(score),avgInteract:Math.round(avgInteract),avgOrder:Math.round(avgOrder||0),buckets,trend,goal};
 }
 const LIFE={数码极客:['数码'],运动达人:['运动'],精致美妆党:['美妆'],居家生活家:['居家'],时尚穿搭控:['鞋服'],美食家:['食品']};
 function lifeProfile(){
   const lo=computeInterests(Date.now(),LONG_HL);
-  if(lo.total<4) return {tag:'探索中',reason:'行为不足，待积累长期偏好'};
-  const top=lo.arr[0].cat;
-  let tag='多元生活家', reason='跨品类兴趣广泛（'+lo.arr.slice(0,2).map(x=>x.cat).join(' / ')+'）';
-  for(const [k,cats] of Object.entries(LIFE)){ if(cats.includes(top)){ tag=k; reason='长期偏好 '+top+'，疑似「'+k+'」'; break; } }
-  const it=inferIntent(); const cp=consumptionProfile();
-  if(it.topKey==='deal' && cp.score<35){ tag='性价比实用派'; reason='低价位 + 价格敏感，注重性价比'; }
-  if(liveEvents().some(e=>(e.meta.q||'').includes('礼')||e.cat==='食品')) { /* 礼品 */ }
-  if(liveEvents().filter(e=>(e.meta.q||'').includes('礼')||e.cat==='食品').length>=2){ tag='礼仪送礼型'; reason='关注礼盒/食品，疑似送礼场景'; }
-  return {tag,reason,top};
+  if(lo.total<4) return {tag:'探索中',reason:'行为不足，待积累长期偏好',conf:0};
+  const top=lo.arr[0].cat; const top2=lo.arr.slice(0,2).map(x=>x.cat); const topPct=lo.arr[0].pct;
+  let tag='多元生活家', reason='跨品类兴趣广泛（'+top2.join(' / ')+'）', conf=Math.min(95,40+topPct*0.5);
+  for(const [k,cats] of Object.entries(LIFE)){ if(cats.includes(top)){ tag=k; reason='长期偏好「'+top+'」为主导，疑似「'+k+'」'; conf=Math.min(95,52+topPct*0.6); break; } }
+  const it=inferIntent(); const cp=consumptionProfile(); const signals=[];
+  if(it.topKey==='deal'&&cp.score<35){ tag='性价比实用派'; reason='低价位 + 价格敏感 + 折扣偏好，注重性价比'; conf=Math.min(92,55+cp.buckets.low*0.4); signals.push('价格敏感'); }
+  const giftHits=liveEvents().filter(e=>(e.meta.q||'').includes('礼')||e.cat==='食品').length;
+  if(giftHits>=2){ tag='礼仪送礼型'; reason='关注礼盒/食品 + 多次「礼」字搜索，疑似送礼场景'; conf=Math.min(90,50+giftHits*12); signals.push('送礼场景'); }
+  if(cp.buckets.high>=40) signals.push('高消费');
+  if(cp.buckets.low>=50) signals.push('低价导向');
+  if(signals.length) reason+='（信号：'+signals.join('、')+'）';
+  return {tag,reason,top,conf:Math.round(conf)};
 }
 
 /* ============================================================
@@ -623,8 +692,10 @@ function scoreRecFeed(){
     const precision=scorePrecision(item.p,it,sh);
     const extension=scoreExtension(item.p,shortTop,lo.arr.map(x=>x.cat),item);
     const price=scorePrice(item.p,ps,it);
-    const total=Math.round(precision*0.4+extension*0.3+price*0.3);
-    return {p:item.p,explore:item.explore,precision,extension,price,total,why:recWhy(item)};
+    const cp0=precision*0.4, ce0=extension*0.3, cz0=price*0.3;
+    const total=Math.round(cp0+ce0+cz0);
+    const contrib={precision:Math.round(cp0),extension:Math.round(ce0),price:Math.round(cz0)};
+    return {p:item.p,explore:item.explore,precision,extension,price,total,contrib,why:recWhy(item)};
   });
   const avg=k=>items.length?Math.round(items.reduce((a,x)=>a+x[k],0)/items.length):0;
   return {items,ovs:{precision:avg('precision'),extension:avg('extension'),price:avg('price'),total:avg('total')},sh,lo,it,ps,shortTop};
@@ -646,7 +717,7 @@ function getSessions(){
   })).sort((a,b)=>b.start-a.start);
 }
 function newSession(){ state._sid++; state.cur.sid=state._sid; state._tid++; state.cur.tid=state._tid;
-  state.sesExposed=new Set(); state.sesInteracted=new Set(); state.confHist=[]; state.strat='cold';
+  state.sesExposed=new Set(); state.sesInteracted=new Set(); state.confHist=[]; state.strat='cold'; state.histSnapshots=[]; state._lastSnap=0;
   toast('已开启新会话 S'+state.cur.sid); refreshAll(); }
 function newTrace(){ state._tid++; state.cur.tid=state._tid; toast('已开启新轨迹 T'+state.cur.tid); renderLeft(); }
 const ACTI={view:'👁',detail:'📄',fav:'❤️',cart:'🛒',search:'🔎',filter:'🧩',sort:'⇅',hover:'👀',removeCart:'➖',purchase:'💳',dismiss:'✕'};
@@ -664,17 +735,29 @@ function renderLeft(){
   const detailN=ev.filter(e=>e.type==='detail').length; const cartN=ev.filter(e=>e.type==='cart').length;
   const searches=[...new Set(ev.filter(e=>e.type==='search').map(e=>e.meta.q))].slice(0,4);
   const startTs=ev.length?ev[0].ts:Date.now();
+  const elapsedSec=ev.length?Math.max(1,(Date.now()-startTs)/1000):1;
+  const pace=(ev.length/elapsedSec*60).toFixed(1);
+  const lastEv=ev[ev.length-1];
+  const idleSec=ev.length?(Date.now()-lastEv.ts)/1000:0;
+  const sstatus=!ev.length?'未开始':(idleSec>30?'停滞':'活跃');
+  const prevSess=getSessions().find(s=>s.sid!==state.cur.sid);
+  let diffTxt='';
+  if(prevSess){ const pn=prevSess.traces.reduce((a,t)=>a+t.events.length,0); const d=ev.length-pn; diffTxt='vs 上会话 '+(d>=0?'+':'')+d+' 行为'; }
+  const node=state.search?('搜索「'+state.search+'」'):(state.filter!=='推荐'?('品类：'+state.filter):'推荐流');
   document.getElementById('sesProf').innerHTML=
-    `<div class="sp"><span class="k">会话</span><span class="v">S${state.cur.sid} · T${state.cur.tid}</span>
-       <span class="k">时长</span><span class="v">${ev.length?dur(Date.now()-startTs):'0s'}</span>
-       <span class="k">行为数</span><span class="v">${ev.length}</span>
-       <span class="k">页面深度</span><span class="v">${detailN}个详情</span></div>
-     <div class="sp-funnel">
-       <div class="fn"><div class="n">${state.sesExposed.size}</div><div class="l">曝光</div></div><div class="ar">›</div>
-       <div class="fn"><div class="n">${detailN}</div><div class="l">详情</div></div><div class="ar">›</div>
-       <div class="fn"><div class="n">${cartN}</div><div class="l">加购</div></div>
-     </div>
-     ${searches.length?`<div class="sp-search">🔎 ${searches.map(q=>'「'+q+'」').join(' ')}</div>`:''}`;
+    '<div class="sp"><span class="k">会话</span><span class="v">S'+state.cur.sid+'·T'+state.cur.tid+'</span>'
+    +'<span class="k">时长</span><span class="v">'+(ev.length?dur(Date.now()-startTs):'0s')+'</span>'
+    +'<span class="k">行为数</span><span class="v">'+ev.length+'</span>'
+    +'<span class="k">页面深度</span><span class="v">'+detailN+'个详情</span></div>'
+    +'<div class="sp-extra"><span class="k">行为节奏</span><span class="v">'+pace+'/min</span>'
+    +'<span class="k">会话状态</span><span class="v">'+sstatus+(ev.length&&idleSec>5?' · 静默'+Math.round(idleSec)+'s':'')+'</span></div>'
+    +'<div class="sp-node">📍 当前节点：'+node+'</div>'
+    +'<div class="sp-funnel">'
+    +'<div class="fn"><div class="n">'+state.sesExposed.size+'</div><div class="l">曝光</div></div><div class="ar">›</div>'
+    +'<div class="fn"><div class="n">'+detailN+'</div><div class="l">详情</div></div><div class="ar">›</div>'
+    +'<div class="fn"><div class="n">'+cartN+'</div><div class="l">加购</div></div></div>'
+    +(searches.length?'<div class="sp-search">🔎 '+searches.map(q=>'「'+q+'」').join(' ')+'</div>':'')
+    +(diffTxt?'<div class="sp-diff">'+diffTxt+'</div>':'');
   // 会话/轨迹列表
   const sess=getSessions();
   const el=document.getElementById('sessions');
@@ -775,21 +858,71 @@ function sparkHTML(vals){
   const w=110,h=22; const pts=vals.map((v,i)=>[(i/(vals.length-1)*w).toFixed(1),(h-(v/100)*h).toFixed(1)].join(',')).join(' ');
   return `<svg width="${w}" height="${h}" style="vertical-align:middle"><polyline fill="none" stroke="#8b7bff" stroke-width="2" points="${pts}"/></svg>`;
 }
+function pushSnapshot(){
+  const now=Date.now();
+  const sh=computeInterests(now,SHORT_HL); const lo=computeInterests(now,LONG_HL);
+  const short={},long={};
+  sh.arr.forEach(x=>short[x.cat]=x.score); lo.arr.forEach(x=>long[x.cat]=x.score);
+  state.histSnapshots.push({t:now,short,long});
+  if(state.histSnapshots.length>30) state.histSnapshots.shift();
+}
+function interestTimelineHTML(){
+  const snaps=state.histSnapshots; const W=324,H=82,pad=4;
+  if(snaps.length<2) return '<div style="font-size:11px;color:#9a9dc0;text-align:center;padding:18px 0">采集中：至少 2 个时间点后绘制（每 ~2s 采样）</div>';
+  const catSet=new Set();
+  snaps.forEach(s=>{Object.keys(s.short).forEach(c=>catSet.add(c));Object.keys(s.long).forEach(c=>catSet.add(c));});
+  const peaks={}; catSet.forEach(c=>{peaks[c]=Math.max(0,...snaps.map(s=>Math.max(s.short[c]||0,s.long[c]||0)));});
+  const top=Object.entries(peaks).sort((a,b)=>b[1]-a[1]).slice(0,4).map(x=>x[0]);
+  if(!top.length) return '<div style="font-size:11px;color:#9a9dc0;text-align:center;padding:18px 0">暂无兴趣信号，开始浏览后随激活/衰退绘制</div>';
+  let maxS=1,maxL=1;
+  top.forEach(c=>{maxS=Math.max(maxS,...snaps.map(s=>s.short[c]||0));maxL=Math.max(maxL,...snaps.map(s=>s.long[c]||0));});
+  const xOf=i=>pad+(i/(snaps.length-1))*(W-2*pad);
+  const yS=v=>H-pad-(v/maxS)*(H-2*pad);
+  const yL=v=>H-pad-(v/maxL)*(H-2*pad);
+  let lines='';
+  top.forEach(c=>{
+    const col=CAT_COLOR[c]||'#888';
+    const sp=snaps.map((s,i)=>xOf(i).toFixed(1)+','+yS(s.short[c]||0).toFixed(1)).join(' ');
+    const lp=snaps.map((s,i)=>xOf(i).toFixed(1)+','+yL(s.long[c]||0).toFixed(1)).join(' ');
+    lines+='<polyline fill="none" stroke="'+col+'" stroke-width="2" points="'+sp+'"/>';
+    lines+='<polyline fill="none" stroke="'+col+'" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.5" points="'+lp+'"/>';
+  });
+  const legend=top.map(c=>'<span class="tl-eg" style="border-color:'+(CAT_COLOR[c]||'#888')+'">'+c+'</span>').join('');
+  return '<svg width="'+W+'" height="'+H+'" style="display:block">'+lines+'</svg>'
+    +'<div class="tl-legend">'+legend+'<span class="tl-note">实线短期·虚线长期(各自归一)</span></div>';
+}
 function renderProfile(){
   const cp=consumptionProfile(); const lp=lifeProfile(); const ps=priceProfile();
+  document.getElementById('upOcc').textContent=USER.crowd;
+  document.getElementById('upIncome').textContent=USER.income;
+  document.getElementById('upDevice').textContent=USER.device;
+  document.getElementById('upChannel').textContent=USER.channel;
+  document.getElementById('upActive').textContent=USER.activeHours;
+  document.getElementById('upOrders').textContent=USER.lifetimeOrders+'单/¥'+USER.lifetimeSpend;
   document.getElementById('upPower').textContent=cp.level;
+  document.getElementById('upPowerBar').style.width=cp.score+'%';
+  document.getElementById('upPowerVal').textContent=cp.score;
   document.getElementById('upAvgOrder').textContent= cp.avgOrder?('¥'+cp.avgOrder):'未下单';
   document.getElementById('upBand').textContent='¥'+ps.band[0]+'-'+ps.band[1];
   document.getElementById('upLifeTag').textContent=lp.tag;
+  document.getElementById('upLifeConf').textContent= lp.conf?('置信 '+lp.conf+'%'):'';
   document.getElementById('upLifeReason').textContent=lp.reason;
+  const bk=cp.buckets;
+  document.getElementById('upBuckets').innerHTML=
+    '<div class="pb"><div class="pn" style="color:#22c55e">'+bk.low+'%</div><div class="pl">低价<150</div></div>'+
+    '<div class="pb"><div class="pn" style="color:#f59e0b">'+bk.mid+'%</div><div class="pl">中价150-400</div></div>'+
+    '<div class="pb"><div class="pn" style="color:#ef4444">'+bk.high+'%</div><div class="pl">高价>400</div></div>';
+  document.getElementById('upGoal').innerHTML='<span class="gt">🎯 推荐目标</span><span class="gd">'+cp.goal+'</span>';
   const maxH=Math.max(1,...Object.values(USER.histCats));
   document.getElementById('upHist').innerHTML=Object.entries(USER.histCats).map(([c,n])=>{
     const col=CAT_COLOR[c]||'#888';
-    return `<div class="uh"><span>${c}</span><div class="utr"><div class="uf" style="width:${n/maxH*100}%;background:${col}"></div></div><b>${n}</b></div>`;
+    return '<div class="uh"><span>'+c+'</span><div class="utr"><div class="uf" style="width:'+(n/maxH*100)+'%;background:'+col+'"></div></div><b>'+n+'</b></div>';
   }).join('');
 }
 function renderRight(){
-  const sc=scoreRecFeed(); const now=Date.now();
+  const sc=scoreRecFeed(); const now=Date.now(); const cp=consumptionProfile();
+  if(now-(state._lastSnap||0)>2000){ pushSnapshot(); state._lastSnap=now; }
+  document.getElementById('interestTimeline').innerHTML=interestTimelineHTML();
   // 画像
   renderProfile();
   // 意图漏斗
@@ -810,8 +943,8 @@ function renderRight(){
   document.getElementById('iBar').style.width=sc.it.conf+'%';
   const sTop=sc.shortTop, lTop=sc.lo.arr[0]&&sc.lo.arr[0].cat;
   document.getElementById('uState').innerHTML=
-    `<span class="pill">⚡短期 <b>${sTop||'—'}</b></span><span class="pill">🏆长期 <b>${lTop||'—'}</b></span>`
-    +`<span class="pill">💰价位 <b>¥${Math.round(sc.ps.mean)}</b></span><span class="pill">价格敏感 <b>${(sc.ps.sensitive*100).toFixed(0)}%</b></span>`;
+    '<span class="pill">⚡短期 <b>'+(sTop||'—')+'</b></span><span class="pill">🏆长期 <b>'+(lTop||'—')+'</b></span>'
+    +'<span class="pill">💰价位 <b>¥'+Math.round(sc.ps.mean)+'</b></span><span class="pill">消费力 <b>'+cp.level+'·'+cp.trend+'</b></span>';
   // 运营策略按钮
   document.getElementById('opsbar').innerHTML=Object.entries(OPS).map(([k,v])=>
     `<button class="mini-btn ${state.ops===k?'on':''}" onclick="setOps('${k}')">${v}</button>`).join('');
@@ -841,6 +974,10 @@ function scoreItemHTML(x){
       <div class="si-top"><span class="si-name">${x.p.name}</span><span class="si-tot">${x.total}</span></div>
       <div class="si-why">${x.why} · ¥${x.p.price}</div>
       <div class="si-bars">${ovBar('意图精准',x.precision,'var(--brand)')}${ovBar('兴趣延展',x.extension,'var(--violet)')}${ovBar('价格匹配',x.price,'var(--blue)')}</div>
+      <div class="contrib">
+        <div class="contrib-bar"><span class="cb cb-p" style="width:${(x.contrib.precision/(x.total||1))*100}%"></span><span class="cb cb-e" style="width:${(x.contrib.extension/(x.total||1))*100}%"></span><span class="cb cb-z" style="width:${(x.contrib.price/(x.total||1))*100}%"></span></div>
+        <div class="contrib-leg">贡献分解 · 意图 ${x.contrib.precision} · 延展 ${x.contrib.extension} · 价格 ${x.contrib.price} ＝ ${x.total}</div>
+      </div>
     </div></div>`;
 }
 
