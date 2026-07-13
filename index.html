@@ -290,6 +290,57 @@
 </div>
 <div class="stage">
 
+  <!-- ============ 用户画像 · 兴趣 / 意图 ============ -->
+  <div class="col col-profile">
+    <div class="col-label"><span class="dot" style="background:var(--brand)"></span>用户画像 · 兴趣 / 意图</div>
+    <div class="acard light">
+      <div class="a-head light">用户画像</div>
+      <div class="up-top">
+        <div class="up-av" id="upAv">🧑‍💻</div>
+        <div class="up-id"><b id="upName">小K</b><span class="up-uid" id="upUid">U20240710</span>
+          <div class="up-tags"><span class="pill2" id="upLevel">黄金会员</span><span class="pill2" id="upTier">老客</span><span class="pill2" id="upReg">注册312天</span></div>
+        </div>
+      </div>
+      <div class="up-grid">
+        <div><small>性别</small><b id="upGender">女</b></div>
+        <div><small>年龄段</small><b>25-34</b></div>
+        <div><small>城市</small><b>北京</b></div>
+        <div><small>消费力</small><b id="upPower">未知</b></div>
+        <div><small>平均笔单价</small><b id="upAvgOrder">—</b></div>
+        <div><small>价位带</small><b id="upBand">—</b></div>
+      </div>
+      <div class="up-grid2">
+        <div><small>八大人群</small><b id="upOcc">—</b></div>
+        <div><small>收入区间</small><b id="upIncome">—</b></div>
+        <div><small>设备</small><b id="upDevice">—</b></div>
+        <div><small>渠道</small><b id="upChannel">—</b></div>
+        <div><small>活跃时段</small><b id="upActive">—</b></div>
+        <div><small>累计订单</small><b id="upOrders">—</b></div>
+      </div>
+      <div class="up-power"><span class="lab">消费力</span><div class="strack"><div class="sfill" id="upPowerBar" style="width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2))"></div></div><span class="val" id="upPowerVal">0</span></div>
+      <div class="up-life"><span class="life-tag" id="upLifeTag">探索中</span><span class="life-conf" id="upLifeConf"></span><span class="life-reason" id="upLifeReason">行为不足，待积累长期偏好</span></div>
+      <div class="price-buckets" id="upBuckets"></div>
+      <div class="up-goal" id="upGoal"></div>
+      <div class="up-hist" id="upHist"></div>
+    </div>
+    <div class="acard">
+      <div class="a-head"><span class="pulse"></span>意图状态 · 漏斗 / 置信</div>
+      <div class="funnel" id="intentFunnel"></div>
+      <div class="sparkrow">置信趋势 <span id="confSpark"></span> <span id="iConf2" style="margin-left:auto;color:#fff;font-weight:700"></span></div>
+    </div>
+    <div class="acard">
+      <div class="a-head">当前用户状态 · LIVE</div>
+      <div style="display:flex;align-items:baseline;gap:9px"><span style="font-size:20px" id="iIcon">🧭</span><span style="font-size:19px;font-weight:800;color:#fff" id="iLabel">观望中</span></div>
+      <div style="font-size:11px;color:#a9acd0;margin-top:3px" id="iConf">置信度 —</div>
+      <div class="bar-track" style="height:6px;border-radius:4px;background:#2a2e4a;margin:8px 0 8px;overflow:hidden"><div id="iBar" style="height:100%;border-radius:4px;background:linear-gradient(90deg,var(--brand),var(--brand-2));transition:width .5s;width:0"></div></div>
+      <div class="ustate" id="uState"></div>
+    </div>
+    <div class="acard">
+      <div class="a-head">兴趣时序演化 · 激活 / 衰退</div>
+      <div class="timeline" id="interestTimeline"></div>
+    </div>
+  </div>
+
   <!-- ============ 实机演示 / 回放 ============ -->
   <div class="col col-phone">
     <div class="col-label"><span class="dot"></span>移动电商 App · 实机演示 / 回放</div>
@@ -343,57 +394,6 @@
         </div>
         <div class="toast" id="toast"></div>
       </div>
-    </div>
-  </div>
-
-  <!-- ============ 用户画像 · 兴趣 / 意图 ============ -->
-  <div class="col col-profile">
-    <div class="col-label"><span class="dot" style="background:var(--brand)"></span>用户画像 · 兴趣 / 意图</div>
-    <div class="acard light">
-      <div class="a-head light">用户画像</div>
-      <div class="up-top">
-        <div class="up-av" id="upAv">🧑‍💻</div>
-        <div class="up-id"><b id="upName">小K</b><span class="up-uid" id="upUid">U20240710</span>
-          <div class="up-tags"><span class="pill2" id="upLevel">黄金会员</span><span class="pill2" id="upTier">老客</span><span class="pill2" id="upReg">注册312天</span></div>
-        </div>
-      </div>
-      <div class="up-grid">
-        <div><small>性别</small><b id="upGender">女</b></div>
-        <div><small>年龄段</small><b>25-34</b></div>
-        <div><small>城市</small><b>北京</b></div>
-        <div><small>消费力</small><b id="upPower">未知</b></div>
-        <div><small>平均笔单价</small><b id="upAvgOrder">—</b></div>
-        <div><small>价位带</small><b id="upBand">—</b></div>
-      </div>
-      <div class="up-grid2">
-        <div><small>八大人群</small><b id="upOcc">—</b></div>
-        <div><small>收入区间</small><b id="upIncome">—</b></div>
-        <div><small>设备</small><b id="upDevice">—</b></div>
-        <div><small>渠道</small><b id="upChannel">—</b></div>
-        <div><small>活跃时段</small><b id="upActive">—</b></div>
-        <div><small>累计订单</small><b id="upOrders">—</b></div>
-      </div>
-      <div class="up-power"><span class="lab">消费力</span><div class="strack"><div class="sfill" id="upPowerBar" style="width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2))"></div></div><span class="val" id="upPowerVal">0</span></div>
-      <div class="up-life"><span class="life-tag" id="upLifeTag">探索中</span><span class="life-conf" id="upLifeConf"></span><span class="life-reason" id="upLifeReason">行为不足，待积累长期偏好</span></div>
-      <div class="price-buckets" id="upBuckets"></div>
-      <div class="up-goal" id="upGoal"></div>
-      <div class="up-hist" id="upHist"></div>
-    </div>
-    <div class="acard">
-      <div class="a-head"><span class="pulse"></span>意图状态 · 漏斗 / 置信</div>
-      <div class="funnel" id="intentFunnel"></div>
-      <div class="sparkrow">置信趋势 <span id="confSpark"></span> <span id="iConf2" style="margin-left:auto;color:#fff;font-weight:700"></span></div>
-    </div>
-    <div class="acard">
-      <div class="a-head">当前用户状态 · LIVE</div>
-      <div style="display:flex;align-items:baseline;gap:9px"><span style="font-size:20px" id="iIcon">🧭</span><span style="font-size:19px;font-weight:800;color:#fff" id="iLabel">观望中</span></div>
-      <div style="font-size:11px;color:#a9acd0;margin-top:3px" id="iConf">置信度 —</div>
-      <div class="bar-track" style="height:6px;border-radius:4px;background:#2a2e4a;margin:8px 0 8px;overflow:hidden"><div id="iBar" style="height:100%;border-radius:4px;background:linear-gradient(90deg,var(--brand),var(--brand-2));transition:width .5s;width:0"></div></div>
-      <div class="ustate" id="uState"></div>
-    </div>
-    <div class="acard">
-      <div class="a-head">兴趣时序演化 · 激活 / 衰退</div>
-      <div class="timeline" id="interestTimeline"></div>
     </div>
   </div>
 
